@@ -1,6 +1,6 @@
 # centris_scraper
 
-To install the dependancies puppeteer and cheerio and fs-extra
+To install the dependancies puppeteer and cheerio and fs-extra run
 
 ```
 npm install 
