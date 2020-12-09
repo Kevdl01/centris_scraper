@@ -2,9 +2,10 @@ const pup = require('puppeteer');
 const $ = require('cheerio')
 const fs = require('fs-extra')
 const detailinfo = require('./hinfo1')
-//a browser is created when pup connects to a chromium instance via pup.launch
+
+//create a function and then launch a browser when pup connects to a chromium instance via pup.launch
 async function getlinks (){
-const browser = await pup.launch({headless:true, slowMo: 100, devtools: true})
+    const browser = await pup.launch({headless:true, slowMo: 100, devtools: true})
     const page = await browser.newPage();
     await page.goto('https://www.centris.ca/en/houses~for-sale~montreal-island?view=Thumbnail');
     await page.waitForSelector('li.next > a');
@@ -34,7 +35,9 @@ const browser = await pup.launch({headless:true, slowMo: 100, devtools: true})
     // console.log(prop)
     return (prop)
 }
-    
+
+// call the function and pass each link to the detailinfo module which opens the link gets the listings into json and writes into a csv file
+
 getlinks().then(prop => test(prop))
 
 function test (prop)
